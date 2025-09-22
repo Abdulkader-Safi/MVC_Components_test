@@ -98,10 +98,14 @@ public class HomeController : Controller
                 ActionUrl = "/Home/Privacy",
                 ActionText = "Learn More"
             },
-
         };
-        
-        return View(cards);
+
+        string exampleString = "This is an example string to demonstrate string interpolation in C#.";
+
+        ViewBag.ExampleString = exampleString;
+        ViewBag.Cards = cards;
+
+        return View();
     }
 
     public IActionResult Privacy()
