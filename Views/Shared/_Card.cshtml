@@ -1,0 +1,34 @@
+@model MVC_Components.Models.CardViewModel
+
+<div class="card @Model.CssClass @(Model.ShowBorder ? "card-border" : "") @(Model.ShowShadow ? "card-shadow" : "")">
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title" />
+    }
+    
+    <div class="card-body">
+        @if (!string.IsNullOrEmpty(Model.Title))
+        {
+            <h5 class="card-title">@Model.Title</h5>
+        }
+        
+        @if (!string.IsNullOrEmpty(Model.Content))
+        {
+            <div class="card-content">
+                @Html.Raw(Model.Content)
+            </div>
+        }
+        
+        @if (!string.IsNullOrEmpty(Model.ActionUrl) && !string.IsNullOrEmpty(Model.ActionText))
+        {
+            <a href="@Model.ActionUrl" class="btn btn-primary card-action">@Model.ActionText</a>
+        }
+    </div>
+    
+    @if (!string.IsNullOrEmpty(Model.Footer))
+    {
+        <div class="card-footer">
+            @Model.Footer
+        </div>
+    }
+</div>

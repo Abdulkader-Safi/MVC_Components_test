@@ -1,0 +1,20 @@
+@model List<MVC_Components.Models.CardViewModel>
+@{
+    ViewData["Title"] = "Card Components Demo";
+}
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="display-4">MVC Components Demo</h1>
+        <p class="lead">Demonstrating reusable card components in ASP.NET Core MVC</p>
+    </div>
+
+    <div class="row">
+        @foreach (var card in Model)
+        {
+            <div class="col-md-4 mb-4">
+                @Html.Partial("_Card", card)
+            </div>
+        }
+    </div>
+</div>
